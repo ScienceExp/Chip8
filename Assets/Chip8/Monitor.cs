@@ -12,7 +12,9 @@ public class Monitor : MonoBehaviour
     public void CreateTexture(int width, int height)
     {
         texture = new Texture2D(width, height);
+        texture.wrapMode = TextureWrapMode.Clamp;  
         mat.mainTexture = texture;
+
     }
 
     public void Clear(Color32 color)
