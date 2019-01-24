@@ -1,12 +1,11 @@
 ---
-title: "Post: Quote"
+title: "Test Post"
+date: 2017-10-13
+unity_dir: game_post
 categories:
-  - Post Formats
+  - General
 tags:
-  - Post Formats
-  - quote
+  - test
 ---
 
-> Only one thing is impossible for God: To find any sense in any copyright law on the planet.
-  
-> <cite><a href="http://www.brainyquote.com/quotes/quotes/m/marktwain163473.html">Mark Twain</a></cite>
+This is a test post.
