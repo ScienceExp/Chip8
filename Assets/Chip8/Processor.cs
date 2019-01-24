@@ -50,6 +50,7 @@ public class Processor : MonoBehaviour
         while (PowerOn)
         {
             elapsedSpan = new TimeSpan(cycleTimer.ElapsedTicks);
+            cycleTimer.Restart(); //got the time above, start counting again
             cycles_to_catch_up = (int)(Chip8.CYCLES_PER_SECOND * (elapsedSpan.TotalSeconds + TimeRemainder));
             TimeRemainder = elapsedSpan.TotalSeconds - (int)elapsedSpan.TotalSeconds;
             int cycles = 0;
@@ -61,9 +62,6 @@ public class Processor : MonoBehaviour
                 if (Chip8.drawFlag)
                     monitor.SetPixels32(Chip8.gfx);
             }
-
-            if (cycles > 0)
-                cycleTimer.Restart();
             yield return null;
         }
         monitor.Clear(Color.black); //make it look like power is off

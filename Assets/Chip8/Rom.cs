@@ -27,4 +27,21 @@ public class Rom : MonoBehaviour
             Debug.Log("Error Loading Rom: " + ex.ToString());
         }
     }
+    public void LoadRom(TextAsset txt)
+    {
+        try
+        {
+                byte[] buffer = txt.bytes;
+                for (int i = 0; i < buffer.Length; i++)
+                {
+                    //Load Into Chip8 Memory
+                    Chip8.memory[i + memoffset] = buffer[i];
+                }
+                Debug.Log("read: " + buffer.Length + " bytes");
+        }
+        catch (Exception ex)
+        {
+            Debug.Log("Error Loading Rom: " + ex.ToString());
+        }
+    }
 }

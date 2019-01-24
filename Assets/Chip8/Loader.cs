@@ -12,10 +12,9 @@ using Debug = UnityEngine.Debug;
 
 public class Loader : MonoBehaviour
 {
+    public TextAsset txt;
     Rom rom;
     Processor processor;
-    public InputField input;
-    public string Rom_Path = "Assets/Resources/Roms/INVADERS";
 
     void Initialize()
     {
@@ -38,17 +37,6 @@ public class Loader : MonoBehaviour
         Chip8.sound_timer = 0;
     }
     
-    void Update()
-    {
-        ////For showing input box to load roms over the net
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    processor.PowerOn = false;
-        //    Chip8.iReset();
-        //    input.gameObject.SetActive(true);
-        //}
-    }
-
     private void Start()
     {
         LoadInput();
@@ -56,13 +44,11 @@ public class Loader : MonoBehaviour
 
     public void LoadInput()
     {
-        input.gameObject.SetActive(false);
         rom = GetComponent<Rom>();
         processor = GetComponent<Processor>();
         Initialize();
 
-        rom.LoadRom(Rom_Path);
-        processor.PowerOn = true;
+        rom.LoadRom(txt);
         StartCoroutine(processor.Run());
     }
 }
