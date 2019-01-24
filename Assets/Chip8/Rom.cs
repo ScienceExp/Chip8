@@ -27,7 +27,7 @@ public class Rom : MonoBehaviour
             Debug.Log("Error Loading Rom: " + ex.ToString());
         }
     }
-    public void LoadRom(TextAsset txt)
+    public void LoadRom(TextAsset txt) 
     {
         try
         {
